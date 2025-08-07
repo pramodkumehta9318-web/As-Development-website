@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>AS STUDIOS - Cinematic Intro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
@@ -17,6 +18,7 @@
       background-color: black;
       color: #00ffe1;
       font-family: 'Orbitron', sans-serif;
+      overflow-x: hidden;
     }
 
     .logo-bar {
@@ -29,21 +31,23 @@
       text-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
       animation: flicker 0.2s infinite;
       z-index: 10;
+      text-align: center;
     }
 
     .menu-bar {
       position: fixed;
       top: 20px;
-      right: 30px;
+      right: 20px;
       display: flex;
-      gap: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
       z-index: 10;
     }
 
     .menu-bar a {
       color: #00ffe1;
       text-decoration: none;
-      font-size: 1.1em;
+      font-size: 1em;
       transition: 0.3s;
       text-shadow: 0 0 15px #0ff;
     }
@@ -61,13 +65,14 @@
       justify-content: center;
       text-align: center;
       z-index: 1;
+      padding: 20px;
     }
 
     .title {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 20px;
     }
 
@@ -79,7 +84,9 @@
       animation: popIn 0.6s ease-out forwards;
     }
 
-    .letter:nth-child(n) { animation-delay: calc(1s + .2s * var(--i)); }
+    .letter:nth-child(n) {
+      animation-delay: calc(1s + .2s * var(--i));
+    }
 
     .subtitle {
       font-size: 1.2em;
@@ -87,6 +94,8 @@
       text-shadow: 0 0 10px #00fff7;
       animation: slideUp 1s ease-out forwards;
       animation-delay: 4s;
+      opacity: 0;
+      animation-fill-mode: forwards;
     }
 
     .enter-btn {
@@ -100,6 +109,8 @@
       box-shadow: 0 0 20px #0ff;
       animation: popUp 1s ease-out forwards;
       animation-delay: 4.5s;
+      opacity: 0;
+      animation-fill-mode: forwards;
     }
 
     section {
@@ -119,12 +130,17 @@
       margin-bottom: 20px;
     }
 
-    p {
+    p, ol {
       max-width: 800px;
       margin: 0 auto;
       font-size: 1.1em;
       line-height: 1.6;
       color: #aff;
+      text-align: left;
+    }
+
+    ol {
+      padding-left: 20px;
     }
 
     /* Animations */
@@ -147,6 +163,44 @@
       0%, 100% { opacity: 0.9; }
       50% { opacity: 0.5; }
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .logo-bar {
+        font-size: 1.2em;
+        top: 10px;
+      }
+
+      .menu-bar {
+        top: 60px;
+        right: 10px;
+        gap: 10px;
+        flex-direction: row;
+        font-size: 0.9em;
+      }
+
+      .letter {
+        font-size: 2.5em;
+      }
+
+      .subtitle {
+        font-size: 1em;
+      }
+
+      .enter-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+      }
+
+      h2 {
+        font-size: 2em;
+      }
+
+      p, ol {
+        font-size: 1em;
+        padding: 0 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -162,7 +216,7 @@
   </div>
 
   <!-- Intro Section -->
-  <div class="intro" id="home">
+  <div class="intro" id="intro">
     <div class="title">
       <span class="letter" style="--i:1">A</span>
       <span class="letter" style="--i:2">S</span>
@@ -180,13 +234,20 @@
       <span class="letter" style="--i:14">T</span>
     </div>
     <div class="subtitle">Your imagination Our development</div>
-    <a href="#about" class="enter-btn">Enter Realm</a>
+    <a href="#home" class="enter-btn">Enter Realm</a>
   </div>
 
   <!-- Home Section -->
   <section class="home" id="home">
     <h2>Welcome to AS Development</h2>
-    <p>We are a futuristic digital agency focusing on high-tech solutions, cinematic visuals, and advanced software development that brings your imagination to reality.</p>
+    <p>We are a futuristic digital agency focusing on high-tech solutions, cinematic visuals, and advanced software development that brings your imagination to reality. It's an example of our creation — we create more like this for you.</p>
+    <br>
+    <p>Price is as follows for different websites:</p>
+    <ol type="i">
+      <li>For basic website: starting from ?2000 to ?10000 based on content</li>
+      <li>For medium level (with small animations): ?10000 to ?50000</li>
+      <li>For advanced level (with cinematic intro and full animations): ?25000 to ?60000</li>
+    </ol>
   </section>
 
   <!-- About Us Section -->
@@ -198,7 +259,8 @@
   <!-- Contact Us Section -->
   <section class="contact" id="contact">
     <h2>Contact Us</h2>
-    <p>Email us at: <strong>asstudios@futuremail.com</strong> <br> Or follow us on social media for updates and collaboration.</p>
+    <p>Email us at: <strong>asstudios@futuremail.com</strong><br>
+    Follow us on Instagram and YouTube for more updates.</p>
   </section>
 
 </body>
